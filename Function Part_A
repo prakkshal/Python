@@ -1,0 +1,106 @@
+#1
+def count_lower_upper(string):
+    lower = 0
+    upper = 0
+    for char in string:
+        if char.isalpha():
+            if char.islower():
+                lower += 1
+            else:
+                upper += 1
+    return {'upper': upper, 'lower': lower}
+
+string = "Hello World! 123"
+result = count_lower_upper(string)
+print(result)
+
+#2
+def compute(n):
+    return n + int(str(n)*2) + int(str(n)*3) + int(str(n)*4)
+
+for i in range(4, 8):
+    print(compute(i))
+
+#3
+def create_array(x, y, z, n):
+    return [[[n for _ in range(z)] for _ in range(y)] for _ in range(x)]
+
+
+print(create_array(3, 4, 5, 0))
+
+#4
+def sum_avg(marks):
+    total = sum(marks)
+    average = total / len(marks)
+    return total, average
+
+marks = [90, 80, 70, 60, 50]
+total, average = sum_avg(marks)
+print(f"Total: {total}, Average: {average}")
+
+#5
+def ispangram(string):
+    alphaset = set('abcdefghijklmnopqrstuvwxyz')
+    return alphaset <= set(string.lower())
+
+
+string = "The quick brown fox jumps over the lazy dog"
+print(ispangram(string))
+
+#6
+def create_list(n):
+    return [(x, x*2, x*3) for x in range(1, n+1)]
+
+
+print(create_list(5))
+
+#7
+def ispalindrome(string):
+    string = string.replace(' ', '').lower()
+    return string == string[::-1]
+
+
+string = "Hello There"
+print(ispalindrome(string))
+
+#8
+def convert(string):
+    return ' '.join(sorted(set(string.split())))
+
+
+string = "Quick brown fox jumps over the lazy dog"
+print(convert(string))
+
+#9
+def count_alpha_digits(string):
+    alpha = 0
+    digits = 0
+    for char in string:
+        if char.isalpha():
+            alpha += 1
+        elif char.isdigit():
+            digits += 1
+    return {'alpha': alpha, 'digits': digits}
+
+string = "Hello World! 123"
+result = count_alpha_digits(string)
+print(result)
+
+#10
+def frequency(string):
+    words = string.split()
+    freq = {}
+    for word in words:
+        freq[word] = freq.get(word, 0) + 1
+    return sorted(freq.items())
+
+string = "Quick brown fox jumps over the lazy dog"
+print(frequency(string))
+
+#11
+def create_list(list1, list2):
+    return [x for x in list1 if x in list2]
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+print(create_list(list1, list2))
