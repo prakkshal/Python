@@ -1,0 +1,85 @@
+#1
+def prime_factors(n, i=2):
+    if n == 1:
+        return []
+    if n % i == 0:
+        return [i] + prime_factors(n//i, i)
+    return prime_factors(n, i+1)
+
+
+n = int(input("Enter a number: "))
+print(prime_factors(n))
+
+#2
+def binary(n):
+    if n == 0:
+        return ''
+    print(f"n: {n}, n//2: {n//2}, n%2: {n % 2}")
+    return binary(n//2) + str(n % 2)
+
+
+n = int(input("Enter a number: "))
+print(binary(n))
+
+#3
+def count_vowels(string):
+    if string == '':
+        return 0
+    if string[0].lower() in 'aeiou':
+        return 1 + count_vowels(string[1:])
+    return count_vowels(string[1:])
+
+string = input("Enter a string: ")
+print(count_vowels(string))
+
+#4
+def reverse_list(lst):
+    if len(lst) == 0:
+        return []
+    return [lst[-1]] + reverse_list(lst[:-1])
+
+
+lst = [1, 2, 3, 4, 5]
+print(reverse_list(lst))
+
+#5
+def power(a, b):
+    if b == 0:
+        return 1
+    return a * power(a, b-1)
+
+
+a = int(input("Enter a: "))
+b = int(input("Enter b: "))
+
+print(power(a, b))
+
+#6
+def sanitize_list(lst):
+    if len(lst) == 0:
+        return []
+    return [lst[0] if lst[0] >= 0 else 0] + sanitize_list(lst[1:])
+
+
+lst = [1, -2, 3, -4, 5]
+print(sanitize_list(lst))
+
+#7
+def average(lst):
+    if len(lst) == 0:
+        return 0
+    return lst[0] + average(lst[1:])
+
+
+lst = [1, 2, 3, 4, 5]
+print(average(lst)/len(lst))
+
+#8
+def length(string):
+    if string == '':
+        return 0
+    return 1 + length(string[1:])
+
+
+string = input("Enter a string: ")
+print(length(string))
